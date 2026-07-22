@@ -15,70 +15,22 @@ The repository includes:
 - Classical topic modeling algorithms
 - Neural topic modeling algorithms
 - Evaluation metrics
-- Experimental scripts
-- Result generation
-- Visualization scripts
 
-This repository is intended to ensure the reproducibility of all experiments reported in the manuscript.
+This repository is intended to ensure the reproducibility of all experiments.
 
 ---
 
 # Table of Contents
 
-- Project Structure
 - Dataset Information
 - Code Information
-- Installation
+- Usage Instruction
 - Requirements
-- Usage
 - Methodology
-- Evaluation
-- Results
-- Reproducibility
 - Citation
 - License
 - Contribution
 - Contact
-
----
-
-# Project Structure
-
-```
-Urdu-News-Topic-Modeling/
-│
-├── Data/
-│   ├── Raw/
-│   ├── Processed/
-│   └── Embeddings/
-│
-├── Preprocessing/
-│
-├── BERTopic/
-│
-├── LDA/
-│
-├── NMF/
-│
-├── CTM/
-│
-├── LSA/
-│
-├── Evaluation/
-│
-├── Visualization/
-│
-├── Results/
-│
-├── Figures/
-│
-├── requirements.txt
-│
-├── README.md
-│
-└── LICENSE
-```
-
 ---
 
 # Dataset Information
