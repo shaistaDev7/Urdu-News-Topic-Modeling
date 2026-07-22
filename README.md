@@ -312,9 +312,6 @@ Major libraries
 - octis
 
 ---
-
-# Methodology
-
 # Methodology
 
 The proposed framework applies **BERTopic** to perform topic modeling on Urdu news articles. The workflow consists of five main stages:
@@ -351,28 +348,44 @@ The proposed framework applies **BERTopic** to perform topic modeling on Urdu ne
 <p align="center">
   <img src="Figures/Methodology.png" width="900">
 </p>
+
 # Citation
 
-If you use this repository in your research, please cite:
+If you use this repository, code, or the UNTM dataset in your research, please cite the following work:
 
+## Proposed Paper
+
+```bibtex
+@article{zulfiqar2026bertopic,
+  title={BERTopic for Urdu News: A Benchmark Study on Classical and Neural Topic Modeling Techniques},
+  author={Zulfiqar, Shaista and Muhammad Wasim and Farah Adeeba},
+  journal={PeerJ Computer Science},
+  year={2026},
+  note={Under Review}
+}
 ```
-Shaista Zulfiqar et al.
 
-BERTopic for Urdu News:
-A Benchmark Study on Classical and Neural Topic Modeling Techniques.
+## Benchmark Dataset (UDC)
 
-PeerJ Computer Science (Under Review)
+```bibtex
+@article{mustafa2020urdu,
+  title={Urdu Documents Clustering with Unsupervised and Semi-supervised Probabilistic Topic Modeling},
+  author={Mustafa, Mubashar and others},
+  journal={Information},
+  volume={11},
+  number={11},
+  pages={518},
+  year={2020},
+  publisher={MDPI}
+}
 ```
-
-If accepted, please update this section with the final DOI.
-
----
-
 # License
 
-This repository is released under the MIT License unless otherwise specified.
+This project is released under the **MIT License**.
 
-See the LICENSE file for details.
+You are free to use, modify, and distribute this code for academic and research purposes, provided that the original copyright notice and license are retained.
+
+See the **LICENSE** file for complete details.
 
 ---
 
@@ -395,26 +408,9 @@ Please include a clear description of your proposed modifications.
 
 **Shaista Zulfiqar**
 
-Government College Women University Sialkot
-
-Email: your_email@example.com
+Email: shaistazulfiqar65@gmail.com
 
 GitHub:
 https://github.com/shaistaDev7
 
 ---
-
-## Acknowledgements
-
-This work was developed as part of research on benchmark topic modeling for low-resource Urdu language datasets.
-
-We acknowledge the developers of:
-
-- BERTopic
-- Sentence Transformers
-- Scikit-learn
-- Gensim
-- UMAP
-- HDBSCAN
-
-whose open-source software made this work possible.
