@@ -286,7 +286,7 @@ For example:
 
 Run all notebook cells sequentially to reproduce the experimental results.
 
-For BERTopic experiments, it is recommended to use **Google Colab with a T4 GPU** for faster execution.
+For experiments, it is recommended to use **Google Colab with a T4 GPU** for faster execution.
 
 ---
 
@@ -315,23 +315,42 @@ Major libraries
 
 # Methodology
 
-The workflow implemented in this repository consists of the following stages.
+# Methodology
 
-1. Dataset collection
-2. Data preprocessing
-3. Urdu text normalization
-4. Tokenization
-5. Stop-word removal
-6. Sentence embedding generation
-7. BERTopic modeling
-8. Classical topic modeling
-9. Neural topic modeling
-10. Topic evaluation
-11. Performance comparison
-12. Visualization of results
+The proposed framework applies **BERTopic** to perform topic modeling on Urdu news articles. The workflow consists of five main stages:
+
+1. **Text Preprocessing**
+   - Clean the raw news articles by removing unwanted words, URLs, email addresses, punctuation, digits, English characters, and extra whitespaces.
+
+2. **Document Embedding**
+   - Convert each preprocessed document into a dense semantic vector using pre-trained multilingual sentence embedding models:
+     - MiniLM
+     - MPNET
+     - DistilUSE
+
+3. **Topic Modeling**
+   - Reduce the embedding dimensionality using **UMAP**.
+   - Cluster similar document embeddings using one of the following clustering algorithms:
+     - HDBSCAN
+     - K-Means
+     - Agglomerative Clustering
+   - Generate topic representations using **CountVectorizer** with Urdu stopword removal.
+   - Rank topic words using the **class-based TF-IDF (c-TF-IDF)** weighting scheme.
+
+4. **Topic Extraction**
+   - Extract representative keywords for each discovered topic.
+
+5. **Evaluation**
+   - Evaluate the generated topics using:
+     - **Coherence Metrics:** NPMI and C<sub>V</sub>
+     - **Topic Diversity Metric:** IRBO
 
 ---
+# Methodology Workflow
 
+<p align="center">
+  <img src="Figures/Methodology.png" width="900">
+</p>
 # Citation
 
 If you use this repository in your research, please cite:
