@@ -142,7 +142,7 @@ The following preprocessing steps were applied:
 - Remove digits and numerical characters.
 - Remove English alphabets (`A–Z`, `a–z`) to retain only Urdu text.
 
-after preprocessing, another coulmn is created in dataset by name (Clean_UNTM or Clean_UDC) that used as input for the BERTopic framework and other topic modeling algorithms.
+After preprocessing, another coulmn is created in dataset by name (Clean_UNTM or Clean_UDC) that used as input for the BERTopic framework and other topic modeling algorithms.
 
 ## 2. Urdu Document Clustering (UDC) Corpus
 
@@ -164,68 +164,129 @@ To ensure a fair comparison with previous studies, the UDC corpus was used as th
 
 ---
 
-# Code Information
-
-The repository contains implementations of the following topic modeling approaches.
+## Implemented Models
+This repository contains the complete implementation of the proposed BERTopic framework along with six baseline topic modeling approaches used for comparative evaluation. The implementation includes preprocessing scripts, feature selection, hyperparameter tuning, model training, and evaluation notebooks for both the UNTM and UDC datasets.
 
 | Model | Description |
 |--------|-------------|
-| BERTopic | Transformer-based topic modeling |
-| LDA | Latent Dirichlet Allocation |
-| NMF | Non-negative Matrix Factorization |
-| LSA | Latent Semantic Analysis |
-| CTM | Contextual Topic Model |
-
-Additional scripts include:
-
-- Data preprocessing
-- Text cleaning
-- Embedding generation
-- Topic extraction
-- Topic visualization
-- Model evaluation
+| **BERTopic** | Proposed transformer-based topic modeling approach |
+| **LDA (GS)** | Latent Dirichlet Allocation using Gibbs Sampling |
+| **LDA (VI)** | Latent Dirichlet Allocation using Variational Inference |
+| **Seeded-LDA** | Seed-guided Latent Dirichlet Allocation |
+| **NMF** | Non-negative Matrix Factorization |
+| **NeuralLDA** | Neural Latent Dirichlet Allocation |
+| **CTM** | Combined Topic Model |
 
 ---
 
-# Installation
+# Repository Structure
 
-Clone the repository
+```text
+Urdu-News-Topic-Modeling/
+│
+├── Dataset/
+│   ├── Text-Preprocessing/
+│   │   ├── Clean_UNTM.csv
+│   │   └── Clean_UDC.csv
+│
+├── Code/
+│   ├── Classical Models/
+│   │   ├── LDA/
+│   │   │   ├── LDA(GS).ipynb
+│   │   │   └── LDA(VI).ipynb
+│   │   │
+│   │   ├── Seeded-LDA/
+│   │   │   ├── Feature_Selection.ipynb
+│   │   │   ├── Final_Seed_Words.ipynb
+│   │   │   └── Seeded-LDA.ipynb
+│   │   │
+│   │   └── NMF/
+│   │       └── NMF.ipynb
+│   │
+│   ├── Neural Models/
+│   │   ├── BERTopic/
+│   │   │   ├── Final_BERTopic_UNTM.ipynb
+│   │   │   ├── Final_BERTopic_UDC.ipynb
+│   │   │   ├── Hyperparameter_Tuning_UNTM.ipynb
+│   │   │   └── Hyperparameter_Tuning_UDC.ipynb
+│   │   │
+│   │   ├── NeuralLDA/
+│   │   │   ├── Optimized_NeuralLDA.ipynb
+│   │   │   └── Hyperparameter_Tuning.ipynb
+│   │   │
+│   │   ├── CTM/
+│   │   │   └── Combined_Topic_Model.ipynb
+│   │   │
+│   │   └── ChatGPT_vs_BERTopic/
+│   │       ├── BERTopic_Sample_UNTM.ipynb
+│   │       ├── BERTopic_Sample_UDC.ipynb
+│   │       ├── Sample_UNTM.csv
+│   │       └── Sample_UDC.csv
+│   │
+│   └── stopwords.txt
+│
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
+
+---
+
+# Usage Instructions
+
+Follow the steps below to reproduce the experimental results reported in the paper.
+
+## Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/shaistaDev7/Urdu-News-Topic-Modeling.git
 ```
 
-Move to the project directory
+## Step 2: Navigate to the Project Directory
 
 ```bash
 cd Urdu-News-Topic-Modeling
 ```
 
-Create a virtual environment
-
-```bash
-python -m venv venv
-```
-
-Activate the environment
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Linux / macOS
-
-```bash
-source venv/bin/activate
-```
-
-Install dependencies
+## Step 3: Install Required Libraries
 
 ```bash
 pip install -r requirements.txt
 ```
+
+## Step 4: Prepare the Dataset
+
+Place the cleaned datasets in the following directory:
+
+```text
+Dataset/
+└── Text-Preprocessing/
+    ├── Clean_UNTM.csv
+    └── Clean_UDC.csv
+```
+
+## Step 5: Open Google Colab or Jupyter Notebook
+
+Open the notebook corresponding to the model you want to reproduce.
+
+For example:
+
+| Model | Notebook |
+|--------|----------|
+| BERTopic (UNTM) | `Code/Neural Models/BERTopic/Final_BERTopic_UNTM.ipynb` |
+| BERTopic (UDC) | `Code/Neural Models/BERTopic/Final_BERTopic_UDC.ipynb` |
+| LDA (GS) | `Code/Classical Models/LDA/LDA(GS).ipynb` |
+| LDA (VI) | `Code/Classical Models/LDA/LDA(VI).ipynb` |
+| Seeded-LDA | `Code/Classical Models/Seeded-LDA/Seeded-LDA.ipynb` |
+| NMF | `Code/Classical Models/NMF/NMF.ipynb` |
+| NeuralLDA | `Code/Neural Models/NeuralLDA/Optimized_NeuralLDA.ipynb` |
+| CTM | `Code/Neural Models/CTM/Combined_Topic_Model.ipynb` |
+
+## Step 6: Execute the Notebook
+
+Run all notebook cells sequentially to reproduce the experimental results.
+
+For BERTopic experiments, it is recommended to use **Google Colab with a T4 GPU** for faster execution.
 
 ---
 
@@ -248,74 +309,7 @@ Major libraries
 - plotly
 - nltk
 - scipy
-
----
-
-# Usage
-
-## Step 1
-
-Download the dataset and place it in
-
-```
-Data/Raw/
-```
-
----
-
-## Step 2
-
-Run preprocessing
-
-```bash
-python preprocessing.py
-```
-
----
-
-## Step 3
-
-Train BERTopic
-
-```bash
-python bertopic_model.py
-```
-
----
-
-## Step 4
-
-Train baseline models
-
-```bash
-python lda.py
-
-python nmf.py
-
-python lsa.py
-
-python ctm.py
-```
-
----
-
-## Step 5
-
-Evaluate models
-
-```bash
-python evaluation.py
-```
-
----
-
-## Step 6
-
-Generate visualizations
-
-```bash
-python visualization.py
-```
+- octis
 
 ---
 
@@ -335,58 +329,6 @@ The workflow implemented in this repository consists of the following stages.
 10. Topic evaluation
 11. Performance comparison
 12. Visualization of results
-
----
-
-# Evaluation
-
-The models are evaluated using the following metrics.
-
-- Topic Coherence
-- Topic Diversity
-- Number of Topics
-- Topic Quality
-- Execution Time
-
-The proposed BERTopic model is compared with
-
-- LDA
-- NMF
-- LSA
-- CTM
-
-Evaluation scripts are provided in the repository.
-
----
-
-# Results
-
-The repository reproduces the experiments reported in the manuscript.
-
-Generated outputs include:
-
-- Topic lists
-- Topic keywords
-- Interactive topic visualization
-- Topic hierarchy
-- Topic similarity
-- Performance comparison tables
-- Figures used in the manuscript
-
----
-
-# Reproducibility
-
-To ensure complete reproducibility:
-
-- All source code is included.
-- Experimental scripts are provided.
-- Hyperparameters are documented.
-- Library dependencies are listed.
-- Random seeds are fixed where applicable.
-- Evaluation scripts are included.
-
-Running the scripts in the order described above should reproduce the experimental results reported in the paper.
 
 ---
 
