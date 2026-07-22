@@ -83,28 +83,63 @@ Urdu-News-Topic-Modeling/
 
 # Dataset Information
 
-This study utilizes the **Urdu Digest Corpus (UDC)** as the primary dataset.
+This repository includes experiments conducted on two Urdu news corpora: the proposed **Urdu News Topic Modeling (UNTM)** corpus and the benchmark **Urdu Document Clustering (UDC)** corpus. These datasets were used to evaluate the performance of BERTopic and compare it with several classical and neural topic modeling approaches.
 
-The corpus consists of Urdu news articles collected from multiple news categories.
+---
 
-Please refer to the manuscript for detailed dataset statistics.
+## 1. Urdu News Topic Modeling (UNTM) Corpus
 
-If the dataset cannot be redistributed due to licensing restrictions, please download it from the original source.
+The **Urdu News Topic Modeling (UNTM)** corpus is a large-scale Urdu news dataset developed in this study for topic modeling research. The corpus was created by scraping news articles from multiple online Urdu news websites covering seven major news categories. After data collection, duplicate and irrelevant records were removed, followed by text preprocessing to prepare the corpus for topic modeling experiments.
 
-After downloading, place the dataset inside:
+The final dataset consists of **7,991** Urdu news articles containing more than **2 million tokens**, making it one of the largest publicly available datasets for Urdu topic modeling. The UNTM corpus serves as the primary dataset for evaluating the proposed BERTopic framework.
+
+## Dataset Structure
 
 ```
-Data/Raw/
-```
+dataset/
+├── UNTM Dataset.CSV
+├── Dataset Statistics/
+├── Dataset Scraping Code/
+│   ├── Politics.py
+│   ├── Business.py
+│   ├── Sports.py
+│   ├── Showbiz.py
+│   ├── Weird.py
+│   ├── Technology.py
+│   └── Health.py
 
-Dataset statistics used in this study include:
 
-- Number of Documents
-- Number of Categories
-- Vocabulary Size
-- Total Tokens
+### UNTM Corpus Statistics
 
-(These values are reported in the manuscript.)
+| Attribute | Value |
+|-----------|-------:|
+| Total News Articles | 7,991 |
+| Number of Categories | 7 |
+| Total Tokens | 2,035,870 |
+| Unique Tokens | 53,840 |
+| Minimum Document Length | 21 words |
+| Maximum Document Length | 1,674 words |
+| Average Document Length | 255 words |
+
+---
+
+## 2. Urdu Document Clustering (UDC) Corpus
+
+The **Urdu Document Clustering (UDC)** corpus is a publicly available benchmark dataset introduced by Mustafa et al. (2020). The dataset contains Urdu news articles collected from five different categories.
+
+To ensure a fair comparison with previous studies, the UDC corpus was used as the benchmark dataset in this research.
+
+### UDC Corpus Statistics
+
+| Attribute | Value |
+|-----------|-------:|
+| Total News Articles | 1,008 |
+| Number of Categories | 5 |
+| Total Tokens | 362,337 |
+| Unique Tokens | 22,138 |
+| Minimum Document Length | 10 words |
+| Maximum Document Length | 5,510 words |
+| Average Document Length | 359 words |
 
 ---
 
