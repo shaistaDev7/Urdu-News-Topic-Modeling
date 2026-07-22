@@ -107,6 +107,11 @@ dataset/
 │   ├── Weird.py
 │   ├── Technology.py
 │   └── Health.py
+├── Text Preprocessing/
+│   ├── Dataset Preprocessing.ipynb
+│   ├── Clean Datasets/
+│         ├── Clean_UNTM.CSV
+│         ├── Clean_UDC.CSV
 
 ```
 
@@ -123,6 +128,21 @@ dataset/
 | Average Document Length | 255 words |
 
 ---
+### Text Preprocessing
+
+Before training the topic modeling algorithms, the collected news articles were cleaned and standardized to improve data quality and ensure consistent topic extraction. All preprocessing operations were implemented using Python's **re (Regular Expression)** library along with standard text processing techniques.
+
+The following preprocessing steps were applied:
+
+- Remove extra whitespaces.
+- Remove unwanted words (e.g., اخبار پوائنٹ, روزنامہ, etc.).
+- Remove URLs (`http://` or `https://`).
+- Remove email addresses.
+- Remove punctuation marks (e.g., periods, commas, quotation marks, brackets, etc.).
+- Remove digits and numerical characters.
+- Remove English alphabets (`A–Z`, `a–z`) to retain only Urdu text.
+
+after preprocessing, another coulmn is created in dataset by name (Clean_UNTM or Clean_UDC) that used as input for the BERTopic framework and other topic modeling algorithms.
 
 ## 2. Urdu Document Clustering (UDC) Corpus
 
